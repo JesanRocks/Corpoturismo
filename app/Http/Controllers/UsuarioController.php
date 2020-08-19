@@ -58,12 +58,12 @@ class UsuarioController extends Controller
             'password' => Hash::make($request->input('cedula'))
         ]);
 
-        $usuario= User::create([
-            'name'=> $persona->nombres,
-            'username'=> $persona->cedula,
-            'password'=> $request->password,
+        $usuario = User::create([
+            // 'name'      => $persona->nombres,
+            'username'  => $persona->cedula,
+            'password'  => $request->password,
             'persona_id'=> $persona->id,
-            'rol_id'=> $request->input('rol_id')
+            'rol_id'    => $request->input('rol_id')
         ]);
 
         return redirect()->route('usuarios.index')
@@ -107,10 +107,10 @@ class UsuarioController extends Controller
      * @param  \App\Usuario  $usuario
      * @return \Illuminate\Http\Response
      */
-    public function update($id)
+    public function update(Request $request,$id)
     {
         $persona = Persona::find($id);
-        // $usuario = User::where('persona_id', $persona->id)->first();
+        $usuario = User::where('persona_id', $persona->id)->first();
 
         $validacion = request()->validate([            
             'nombres'       => 'required',
@@ -124,24 +124,14 @@ class UsuarioController extends Controller
 
         $persona->fill(request()->all())->save();
 
-        // if($validacion->fails()) {
-        //     return redirect()->route('usuarios.edit'.$persona->id)
-        //     ->withErrors($validacion);
-        // }
+        $request->request->add([
+            'password' => Hash::make($request->input('cedula'))
+        ]);
 
-        // $persona = Persona::create($request->all());
-
-        // $request->request->add([
-        //     'password' => Hash::make($request->input('cedula'))
-        // ]);
-
-        // $usuario= User::create([
-        //     'name'=> $persona->nombres,
-        //     'username'=> $persona->cedula,
-        //     'password'=> $request->password,
-        //     'persona_id'=> $persona->id,
-        //     'rol_id'=> $request->input('rol_id')
-        // ]);
+        $usuario->username = $request->get('cedula');
+        $usuario->password = $request->password;
+        $usuario->rol_id = $request->get('rol_id');
+        $usuario->save();
 
         return redirect()->route('usuarios.index')
             ->with('info','Usuario actualizado con exito');

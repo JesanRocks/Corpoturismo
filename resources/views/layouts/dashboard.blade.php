@@ -92,16 +92,31 @@
           </a>
         </li>
 
-        <li class="">
-          <a href="#">
+        <li class="{{ request()->is('solicitud*') ? 'active' : '' }}">
+          <a href="{{ route('solicitud.index') }}">
             <i class="fa fa-file-text"></i> <span>Solicitudes</span>
           </a>
         </li>
 
-        <li class="">
+        <li class="treeview {{ request()->is('tramites*') ? 'active' : '' }} {{ request()->is('revisado*') ? 'active' : '' }}">
           <a href="#">
             <i class="fa fa-list"></i> <span>Trámites</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
           </a>
+          <ul class="treeview-menu">
+            <li class="">
+                <a href="{{ route('tramites.index') }}">
+                    <i class="fa fa-circle-o"></i> Pendientes
+                </a>
+            </li>
+            <li class="">
+                <a href="{{ route('revisados.index') }}">
+                    <i class="fa fa-circle-o"></i> Revisados
+                </a>
+            </li>
+          </ul>
         </li>
 
         <!--li class="treeview">
@@ -118,27 +133,6 @@
                 </a>
             </li>
 
-            <li>
-                <a href="index2.html">
-                    <i class="fa fa-circle-o"></i> Opcion 2
-                </a>
-            </li>
-          </ul>
-        </li>
-
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-dashboard"></i> <span>Gerente de RRHH</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li class="active">
-                <a href="index.html">
-                    <i class="fa fa-circle-o"></i> Opcion 1
-                </a>
-            </li>
             <li>
                 <a href="index2.html">
                     <i class="fa fa-circle-o"></i> Opcion 2

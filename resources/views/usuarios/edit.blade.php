@@ -35,6 +35,13 @@
         </div>
 
         <div class="form-group">
+          <label for="cedula" class="col-sm-2 control-label">Usuario</label>
+          <div class="col-sm-10">
+            <input type="number" class="form-control" id="username" name="username" placeholder="Cédula" value="{{  old('username',$usuario->username) }}" disabled>
+          </div>
+        </div>
+
+        <div class="form-group">
           <label for="nacimiento" class="col-sm-2 control-label">Nacimiento</label>
           <div class="col-sm-10">
             <input type="date" class="form-control" id="nacimiento" name="nacimiento" placeholder="Nacimiento" value="{{ old('nacimiento', $persona->nacimiento) }}">
