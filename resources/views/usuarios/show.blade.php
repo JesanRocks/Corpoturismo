@@ -29,13 +29,61 @@
                   <b>Fecha de nacimiento</b> <a class="pull-right">{{$usuario->persona->nacimiento}}</a>
                 </li>
                 <li class="list-group-item">
+                  <b>Estado Civil</b> <a class="pull-right">{{$usuario->persona->edocivil->dsc}}</a>
+                </li>
+                <li class="list-group-item">
                   <b>Municipio</b> <a class="pull-right">{{$municipio->dsc}}</a>
                 </li>
                 <li class="list-group-item">
                   <b>Parroquia</b> <a class="pull-right">{{$usuario->persona->parroquia->dsc}}</a>
-                </li>
+                </li> 
+                
                 <li class="list-group-item">
                   <b>Dirección</b> <a class="pull-right">{{$usuario->persona->direccion}}</a>
+                </li>
+                <li class="list-group-item">
+                  <b>Telf. Habitación</b>
+                  <a class="pull-right">{{$usuario->telf_hab}}</a>
+                </li>
+                <li class="list-group-item">
+                  <b>Telf. Celular</b>
+                  <a class="pull-right">{{$usuario->telf_cel}}</a>
+                </li>
+                <li class="list-group-item">
+                  <b>Correo electrónico</b>
+                  <a class="pull-right">{{$usuario->email}}</a>
+                </li>
+
+                <li class="list-group-item">
+                  <b>Discapacidad</b> <a class="pull-right">{{$usuario->persona->discapacidad->dsc}}</a>
+                </li>
+                <li class="list-group-item">
+                  <b>Nivel/Grado educativo</b>
+                  <a class="pull-right">
+                    {{$usuario->persona->gradoeduc->niveleduc->dsc}} / {{$usuario->persona->gradoeduc->dsc}}
+                  </a>
+                </li> 
+
+                <li class="list-group-item">
+                  <b>Cond. Laboral</b>
+                  <a class="pull-right">{{$usuario->persona->condlab->dsc}}</a>
+                </li> 
+                <li class="list-group-item">
+                  <b>Sector</b>
+                  <a class="pull-right">{{$usuario->persona->sector->dsc}}</a>
+                </li> 
+
+                <li class="list-group-item">
+                  <b>Fecha de Ingreso</b>
+                  <a class="pull-right">{{$usuario->fecha_ingreso}}</a>
+                </li>
+                <li class="list-group-item">
+                  <b>Fecha de Egreso</b>
+                  <a class="pull-right">{{$usuario->fecha_egreso}}</a>
+                </li>
+                <li class="list-group-item">
+                  <b>Salario</b>
+                  <a class="pull-right">{{$usuario->salario}}</a>
                 </li>
               </ul>
 

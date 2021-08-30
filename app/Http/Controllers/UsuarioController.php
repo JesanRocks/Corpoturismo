@@ -5,6 +5,11 @@ namespace App\Http\Controllers;
 use App\Persona;
 use App\User;
 use App\Role;
+use App\EdoCivil;
+use App\Discapacidade;
+use App\GradosEducativo;
+use App\CondicionesLaborale;
+use App\Sectore;
 use App\Parroquia;
 use App\Municipio;
 
@@ -22,15 +27,23 @@ class UsuarioController extends Controller
 
     public function index()
     {
-        $personas = Persona::orderBy('id','ASC')->get();
-        return view('usuarios.index',compact('personas'));
+        $usuarios = User::orderBy('id','ASC')->get();
+        // $personas = Persona::orderBy('id','ASC')->get();
+        return view('usuarios.index',compact('usuarios'));
     }
 
     public function create()
     {
         $roles = Role::orderBy('id','ASC')->get();
         $parroquias = Parroquia::orderBy('id','ASC')->get();
-        return view('usuarios.create',compact('roles','parroquias'));
+        $edocivils = EdoCivil::orderBy('id','ASC')->get();
+        $discapacidades = Discapacidade::orderBy('id','ASC')->get();
+        $gradoseduc = GradosEducativo::orderBy('id','ASC')->get();
+        $condiciones = CondicionesLaborale::orderBy('id','ASC')->get();
+        $sectores = Sectore::orderBy('id','ASC')->get();
+        return view('usuarios.create',compact(
+            'roles','parroquias','edocivils','discapacidades','gradoseduc','condiciones','sectores'
+        ));
     }
 
     public function store(Request $request)
@@ -59,11 +72,16 @@ class UsuarioController extends Controller
         ]);
 
         $usuario = User::create([
-            // 'name'      => $persona->nombres,
-            'username'  => $persona->cedula,
-            'password'  => $request->password,
-            'persona_id'=> $persona->id,
-            'rol_id'    => $request->input('rol_id')
+            'username'      => $persona->cedula,
+            'telf_hab'      => $request->input('telf_hab'),
+            'telf_cel'      => $request->input('telf_cel'),
+            'email'         => $request->input('email'),
+            'fecha_ingreso' => $request->input('fecha_ingreso'),
+            'fecha_egreso' => $request->input('fecha_egreso'),
+            'salario'       => $request->input('salario'),
+            'password'      => $request->password,  
+            'persona_id'    => $persona->id,
+            'rol_id'        => $request->input('rol_id')
         ]);
 
         return redirect()->route('usuarios.index')
@@ -79,6 +97,7 @@ class UsuarioController extends Controller
      */
     public function show($id)
     {
+        // return dd(User::find($id));
         $usuario = User::find($id);
         $municipio = Municipio::find($usuario->persona->parroquia->municipio_id);
         return view('usuarios.show', compact('usuario','municipio'));
@@ -95,9 +114,13 @@ class UsuarioController extends Controller
         $persona = Persona::find($id);
         $usuario = User::where('persona_id', $persona->id)->first();
         $roles = Role::orderBy('id','ASC')->get();
+        $edocivils = EdoCivil::orderBy('id','ASC')->get();
+        $discapacidades = Discapacidade::orderBy('id','ASC')->get();
+        $gradoseduc = GradosEducativo::orderBy('id','ASC')->get();
+        $condiciones = CondicionesLaborale::orderBy('id','ASC')->get();
+        $sectores = Sectore::orderBy('id','ASC')->get();
         $parroquias = Parroquia::orderBy('id','ASC')->get();
-        return view('usuarios.edit', compact('persona','usuario','roles','parroquias'));
-        // ->with('cargos', $cargos); 
+        return view('usuarios.edit', compact('persona','usuario','roles','parroquias','edocivils','discapacidades','gradoseduc','condiciones','sectores'));
     }
 
     /**
@@ -128,7 +151,13 @@ class UsuarioController extends Controller
             'password' => Hash::make($request->input('cedula'))
         ]);
 
-        $usuario->username = $request->get('cedula');
+        $usuario->username= $request->get('cedula');
+        $usuario->telf_hab= $request->get('telf_hab');
+        $usuario->telf_cel= $request->get('telf_cel');
+        $usuario->email= $request->get('email');
+        $usuario->fecha_ingreso= $request->get('fecha_ingreso');
+        $usuario->fecha_egreso= $request->get('fecha_egreso');
+        $usuario->salario= $request->get('salario');
         $usuario->password = $request->password;
         $usuario->rol_id = $request->get('rol_id');
         $usuario->save();

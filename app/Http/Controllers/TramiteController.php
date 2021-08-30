@@ -49,7 +49,7 @@ class TramiteController extends Controller
         
         $validacion = request()->validate([            
             'estatus_id'    => 'required',
-            'razon'         => 'required|min:25',
+            'razon'         => 'required|min:3',
         ]);
 
         $solicitud->fill(request()->all())->save();

@@ -47652,8 +47652,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Jesús Rodríguez\Desktop\Herramientas TIC\Corpoturismo\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\Jesús Rodríguez\Desktop\Herramientas TIC\Corpoturismo\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /var/www/html/jr/Corpoturismo/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /var/www/html/jr/Corpoturismo/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
