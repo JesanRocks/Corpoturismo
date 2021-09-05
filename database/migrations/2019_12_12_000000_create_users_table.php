@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique()->nullable();
             $table->date('fecha_ingreso');
             $table->date('fecha_egreso')->nullable();
-            $table->string('salario');
+            // $table->string('salario');
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();

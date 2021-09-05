@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('contenido')
 <body class="hold-transition skin-green sidebar-mini">
-<div class="wrapper">
+<div class="wrapper"  id="app">
   <header class="main-header">
     <!-- Logo -->
     <a href="index2.html" class="logo">
@@ -83,6 +83,12 @@
         <li class="{{ request()->is('home') ? 'active' : '' }}">
           <a href="{{ route('home') }}">
             <i class="fa fa-home"></i> <span>Inicio</span>
+          </a>
+        </li>
+
+        <li class="{{ request()->is('cargos*') ? 'active' : '' }}">
+          <a href="{{ route('cargos.index') }}">
+            <i class="fa fa-user"></i> <span>Cargos</span>
           </a>
         </li>
 

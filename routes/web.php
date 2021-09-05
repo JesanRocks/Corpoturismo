@@ -20,6 +20,7 @@ Route::redirect('/','login');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('cargos',		'RoleController');
 Route::resource('usuarios',		'UsuarioController');
 Route::resource('solicitud',	'SolicitudeController');
 Route::resource('tramites',		'TramiteController');

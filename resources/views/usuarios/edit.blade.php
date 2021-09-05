@@ -99,14 +99,12 @@
              <input class="form-control" id="telf_hab" name="telf_hab" placeholder="Telf. Habitación" value="{{  old('telf_hab',$usuario->telf_hab) }}">
           </div>
         </div>
-
         <div class="form-group">
           <label for="telf_cel" class="col-sm-2 control-label">Telf. Celular</label>
           <div class="col-sm-10">
              <input class="form-control" id="telf_cel" name="telf_cel" placeholder="Telf. Celular" value="{{  old('telf_cel',$usuario->telf_cel) }}">
           </div>
         </div>
-
         <div class="form-group">
           <label for="email" class="col-sm-2 control-label">Correo electrónico</label>
           <div class="col-sm-10">
@@ -175,13 +173,6 @@
           <label for="fecha_egreso" class="col-sm-2 control-label">Fecha de Egreso</label>
           <div class="col-sm-10">
             <input type="date" class="form-control" id="fecha_egreso" name="fecha_egreso" placeholder="Fecha de Egreso" value="{{  old('fecha_egreso',$usuario->fecha_egreso) }}">
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="salario" class="col-sm-2 control-label">Salario</label>
-          <div class="col-sm-10">
-            <input class="form-control" id="salario" name="salario" placeholder="1.000,00" value="{{  old('salario',$usuario->salario) }}">
           </div>
         </div>
 

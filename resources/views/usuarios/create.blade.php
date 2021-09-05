@@ -171,13 +171,6 @@
         </div>
 
         <div class="form-group">
-          <label for="salario" class="col-sm-2 control-label">Salario</label>
-          <div class="col-sm-10">
-            <input class="form-control" id="salario" name="salario" placeholder="1.000,00">
-          </div>
-        </div>
-
-        <div class="form-group">
           <label for="rol" class="col-sm-2 control-label">Rol</label>
           <div class="col-sm-10">
             <select class="form-control" id="rol_id" name="rol_id" required>

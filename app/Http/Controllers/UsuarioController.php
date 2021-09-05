@@ -78,7 +78,7 @@ class UsuarioController extends Controller
             'email'         => $request->input('email'),
             'fecha_ingreso' => $request->input('fecha_ingreso'),
             'fecha_egreso' => $request->input('fecha_egreso'),
-            'salario'       => $request->input('salario'),
+            // 'salario'       => $request->input('salario'),
             'password'      => $request->password,  
             'persona_id'    => $persona->id,
             'rol_id'        => $request->input('rol_id')
@@ -157,7 +157,7 @@ class UsuarioController extends Controller
         $usuario->email= $request->get('email');
         $usuario->fecha_ingreso= $request->get('fecha_ingreso');
         $usuario->fecha_egreso= $request->get('fecha_egreso');
-        $usuario->salario= $request->get('salario');
+        // $usuario->salario= $request->get('salario');
         $usuario->password = $request->password;
         $usuario->rol_id = $request->get('rol_id');
         $usuario->save();

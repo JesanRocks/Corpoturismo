@@ -81,8 +81,10 @@
 				<td colspan="4" align="justify">
 					<br><br>Presta servicio en la Corporacion de turismo del Estado Monagas (Corpoturismo) como ACTIVO desde el 
 					{{ date("d/m/Y", strtotime($solicitud->usuario->fecha_ingreso)) }} 
-					hasta la presente fecha, devengando un sueldo mensual de Treinta y cinco mil novencientos sensenta y cuatro Bolivares con 00/100 (Bs. 
-					{{$solicitud->usuario->salario}}
+					hasta la presente fecha, devengando un sueldo mensual de 
+					{{$solicitud->usuario->rol->sueldoEscrito}}
+					(Bs. 
+					{{$solicitud->usuario->rol->sueldo}}
 					).<br><br><br><br>
 				</td>
 			</tr>

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Role extends Model
 {
-    protected $fillable = ['dsc'];
+    protected $fillable = ['dsc','sueldo','sueldoEscrito'];
 
     public function usuarios()
 	{

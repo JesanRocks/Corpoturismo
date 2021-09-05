@@ -81,10 +81,6 @@
                   <b>Fecha de Egreso</b>
                   <a class="pull-right">{{$usuario->fecha_egreso}}</a>
                 </li>
-                <li class="list-group-item">
-                  <b>Salario</b>
-                  <a class="pull-right">{{$usuario->salario}}</a>
-                </li>
               </ul>
 
               <a href="{{ route('usuarios.index') }}" class="btn btn-primary btn-block"><b>Volver</b></a>

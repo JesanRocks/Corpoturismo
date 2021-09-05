@@ -1,16 +1,16 @@
 @extends('layouts.dashboard')
-@section('titulo',"Usuarios")
+@section('titulo',"Cargos")
 
 @section('recuadro')
           <div class="box">
             <div class="box-header">
               
               <div class="col-xs-7 col-sm-8 col-md-10">
-                <h3 class="box-title">Listado de usuarios</h3>
+                <h3 class="box-title">Listado de cargos</h3>
               </div>
               
               <div class="col-xs-2">
-                <a href="{{ route('usuarios.create') }}" class="btn btn-info"><i class="fa fa-plus"></i> Registrar</a>
+                <a href="{{ route('cargos.create') }}" class="btn btn-info"><i class="fa fa-plus"></i> Registrar</a>
               </div>
             </div>
             <!-- /.box-header -->
@@ -19,29 +19,29 @@
                 <tbody>
                 <tr>
                   <th class="hidden-xs hidden-sm">N°</th>
-                  <th>Nombres</th>
-                  <th class="hidden-xs hidden-sm">Cédula</th>
+                  <th>Descripción</th>
+                  <th class="hidden-xs hidden-sm">Sueldo</th>
                   <th colspan="3">Opciones</th>
                 </tr>
-                @foreach($usuarios as $usuario)
+                @foreach($cargos as $cargo)
                 <tr>
-                  <td class="hidden-xs hidden-sm">{{$usuario->id}}</td>
-                  <td>{{$usuario->persona->nombres}} {{$usuario->persona->apellidos}}</td>
-                  <td class="hidden-xs hidden-sm">{{$usuario->persona->cedula}}</td>
+                  <td class="hidden-xs hidden-sm">{{$cargo->id}}</td>
+                  <td>{{$cargo->dsc}}</td>
+                  <td class="hidden-xs hidden-sm">{{$cargo->sueldo}} Bs</td>
                   <td style="padding-left: 0px; padding-right: 0px;"> 
-                    <a href="{{ route('usuarios.show', $usuario->id) }}" class="btn btn-info">
+                    <a href="{{ route('cargos.show', $cargo->id) }}" class="btn btn-info">
                       <i class="fa fa-info"></i>
                       <div class="hidden-xs hidden-sm">Información</div>
                     </a>
                   </td>
                   <td style="padding-left: 0px; padding-right: 0px;">
-                    <a href="{{ route('usuarios.edit', $usuario->persona->id) }}" class="btn btn-info">
+                    <a href="{{ route('cargos.edit', $cargo->id) }}" class="btn btn-info">
                       <i class="fa fa-edit"></i> 
                       <div class="hidden-xs hidden-sm">Actualizar</div>
                     </a>
                   </td>
                   <td style="padding-left: 0px; padding-right: 0px;">
-                    <form action="{{ route('usuarios.destroy', $usuario->persona->id) }}" method="POST">
+                    <form action="{{ route('cargos.destroy', $cargo->id) }}" method="POST">
                       {{ csrf_field() }} 
                       {{ method_field('DELETE') }}                    
                       <button  class="btn btn-danger" type="submit">
@@ -52,7 +52,7 @@
                   </td>
                 </tr>
                 @endforeach
-                
+
               </tbody>
             </table>
             </div>
