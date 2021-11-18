@@ -13,8 +13,8 @@
       <div class="box-body">
 
         <div class="form-group">
-          <label for="documento" class="col-sm-2 control-label">Seleccione el documento a tramitar</label>
-          <div class="col-sm-10">
+          <label for="documento" class="col-sm-3 control-label">Seleccione el documento a tramitar</label>
+          <div class="col-sm-9">
             <select class="form-control" id="documento" name="documento">
               {{-- <option value="0">Seleccionar</option> --}}
             @foreach( $documentos as $documento)
@@ -23,6 +23,21 @@
             </select>
           </div>
         </div>
+
+        <div class="form-group">
+          <label for="periodo" class="col-sm-3 control-label">Indique el periodo en curso</label>
+          <div class="col-sm-9">
+            <input class="form-control" type="text" name="periodo" id="periodo" placeholder="2020 - 2021">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="fecha_inicio" class="col-sm-3 control-label">Fecha de inicio</label>
+          <div class="col-sm-9">
+            <input class="form-control" type="date" name="fecha_inicio" id="fecha_inicio" min="{{ now() }}">
+          </div>
+        </div>
+
 
       </div>
       <!-- /.box-body -->

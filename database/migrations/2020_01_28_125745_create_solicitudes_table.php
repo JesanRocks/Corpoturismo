@@ -19,6 +19,9 @@ class CreateSolicitudesTable extends Migration
             $table->unsignedBigInteger('usuario_id');
             $table->unsignedBigInteger('documento_id');
             $table->unsignedBigInteger('estatus_id');
+            $table->string('periodo');
+            $table->date('fecha_inicio')->nullable();
+            $table->date('fecha_aprobado')->nullable();
             $table->mediumText('razon');
             $table->timestamps();
 

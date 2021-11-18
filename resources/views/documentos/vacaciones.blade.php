@@ -5,12 +5,12 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title> Corpoturismo - Carta Solicitud de vacaciones </title>
 	<style type="text/css" media="screen">
-		.logo1{
+		.logoGob{
 		 	width: 120px;
 		 	height: 80px;
 		 	float:left; 
 		}
-		.logo2{
+		.logoCP{
 		 	width: 120px;
 		 	height: 80px;
 		 	float:right; 
@@ -44,68 +44,38 @@
 	</style>
 </head>
 <body>
-	<div class="page-break">
-		<img src="img/logo.png" class="logo1">										
-		<img src="img/logo.png" class="logo2">
+	<div class="">
+		<img src="img/logo2.png" class="logoGob">									
+		<img src="img/logo.png" class="logoCP">
 		<p class="membrete"><b>	
-			CORPORACION DE TURISMO DEL ESTADO MONAGAS<br>
+			CORPORACIÓN DE TURISMO DEL ESTADO MONAGAS<br>
 			G-20004693-7<br> 
 			Antg. Calle Bermúdez, edif. Redbim piso 1 ofic. 1<br>
-			Telf.: 0291-6440657 / E- mail: cormotur.rrhh@gmail.com<br>
-			Maturín. Estado Monagas. Venezuela<br></b>
+			Telf.: 0291-6440657 / E-mail: cormotur.rrhh@gmail.com<br>
+			Maturín, Estado Monagas - Venezuela<br></b>
 		</p>
-
+		<br><br><br><br>
 		<div class="tituloDoc"><b>VACACIONES</b></div>
-
-		Fecha:{{now()}}<br>
-<p style="text-align: justify-all;">
-NOMBRES Y APELLIDOS DEL TRABAJADOR: {{ $solicitud->usuario->persona->nombres }} {{ $solicitud->usuario->persona->apellidos }}<br>
-
-C.I.  {{ $solicitud->usuario->persona->cedula }}      CARGO: {{ $solicitud->usuario->rol->dsc}}<br>
-
-GERENCIA:_____________________________________________________________________________<br>
-
-PERIODO CORRESPONDIENTE:  20____ - 20____<br>
-
-TIEMPO DE VACACIONES: ______ DIAS HÁBILES<br>
-
-FECHA DE INICIO:  ____/____/________ <br> 
-
-APROBADO:{{ $solicitud->estatus->dsc}} NEGADO:{{ $solicitud->estatus->dsc}}  FECHA;____/____/______</p>		
-
-________________________<br>
-         JEFE INMEDIATO <br>  
-        FIRMA<br>
-
-OBSERVACIONES:{{ $solicitud->razon}}<br>
-
-<div class="tituloDoc"><b>
-APROBACION  RECURSOS HUMANOS<br>
-DATOS DEL TRABAJADOR<br>
-</b></div>
-<p style="text-align: justify-all;">
-NOMBRES Y APELLIDOS: {{ $solicitud->usuario->persona->nombres }} {{ $solicitud->usuario->persona->apellidos }}<br>
-
-C.I. {{ $solicitud->usuario->persona->cedula }}      CARGO:{{ $solicitud->usuario->rol->dsc}}<br>
-
-TIEMPO DE VACACIONES: ______ DIAS HÁBILES<br>
-
- DESDE: ____/____/________  HASTA: ____/____/________<br>
-
-DEBE REINTEGRARSE A SUS LABORES EL DIA: ____/____/________<br>
-
-
-APROBADO:_____  NEGADO_____FECHA;____/____/______<br>
-
-OBSERVACIONES:<br></p>
-
-___________________________				________________________<br>
-
-     <b>FIRMA  AUTORIZADA				           TRABAJADOR<br>
- NOTA:</b> ESTA SOLICITUD DEBE IR SIN ENMIENDAS.<br>
-	
-		</p>
-
+		Fecha: {{ $solicitud->created_at->day}}  de {{$solicitud->created_at->monthName}} del {{$solicitud->created_at->year }}.
+		<br>
+		<p style="text-align: justify-all;">
+		NOMBRES Y APELLIDOS DEL TRABAJADOR: {{ $solicitud->usuario->persona->nombres }} {{ $solicitud->usuario->persona->apellidos }}<br>
+		C.I: {{ $solicitud->usuario->persona->cedula }}.      
+		CARGO: {{ $solicitud->usuario->rol->dsc}}<br>
+		GERENCIA DE RR.HH.<br>
+		PERIODO CORRESPONDIENTE: {{$solicitud->periodo}}<br>
+		TIEMPO DE VACACIONES: ______ DIAS HÁBILES<br>
+		FECHA DE INICIO: {{ date("d/m/Y", strtotime($solicitud->fecha_inicio)) }}<br> 
+		APROBADO: <u>{{ ($solicitud->estatus->dsc == 'Aprobado') ? 'X' : '__' }}</u>
+		NEGADO: 	<u>{{ ($solicitud->estatus->dsc == 'Negado') ? 'X' : '__' }}</u> 
+		FECHA DE APROBADO: {{ date("d/m/Y", strtotime($solicitud->fecha_aprobado)) }}</p><br><br><br><br><br><br>	
+     	<p align="center">
+     	________________________<br>
+     	JEFE INMEDIATO <br>  
+     	FIRMA<br>	
+     	</p>
+     	
+     	OBSERVACIONES: {{$solicitud->razon}}<br>
 	</div>
 </body>
 </html>

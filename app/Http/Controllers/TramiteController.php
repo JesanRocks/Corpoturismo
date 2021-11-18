@@ -49,6 +49,9 @@ class TramiteController extends Controller
         
         $validacion = request()->validate([            
             'estatus_id'    => 'required',
+            'periodo'           => $request->input('periodo'),
+            // 'fecha_inicio'      => $request->input('fecha_inicio'),            
+            'fecha_aprobado'    => $request->input('fecha_aprobado'),
             'razon'         => 'required|min:3',
         ]);
 

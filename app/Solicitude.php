@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Solicitude extends Model
 {
     protected $fillable = [
-    	'cod','usuario_id','documento_id','estatus_id','razon'
+    	'cod','usuario_id','documento_id','estatus_id','periodo','fecha_inicio','fecha_aprobado','razon'
+
     ];
 
     public function usuario()

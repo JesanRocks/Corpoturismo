@@ -61,9 +61,12 @@ class SolicitudeController extends Controller
 
         $documentos = Solicitude::create([
             'cod'   => "CP".Auth::user()->username."-".$codigoID."-0".$request->input('documento'),
-            'documento_id'  => $request->input('documento'),
-            'usuario_id'    => Auth::user()->id,
-            'estatus_id'    => '1',
+            'documento_id'      => $request->input('documento'),
+            'usuario_id'        => Auth::user()->id,
+            'estatus_id'        => '1',
+            'periodo'           => $request->input('periodo'),
+            'fecha_inicio'      => $request->input('fecha_inicio'),            
+            // 'fecha_aprobado'    => $request->input('fecha_aprobado'),
             'razon'   => "En espera...",
         ]); 
 
