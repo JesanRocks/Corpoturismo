@@ -21,6 +21,7 @@ class CreateSolicitudesTable extends Migration
             $table->unsignedBigInteger('estatus_id');
             $table->string('periodo');
             $table->date('fecha_inicio')->nullable();
+            $table->date('fecha_final')->nullable();
             $table->date('fecha_aprobado')->nullable();
             $table->mediumText('razon');
             $table->timestamps();

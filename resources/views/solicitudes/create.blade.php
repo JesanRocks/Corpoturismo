@@ -27,17 +27,23 @@
         <div class="form-group">
           <label for="periodo" class="col-sm-3 control-label">Indique el periodo en curso</label>
           <div class="col-sm-9">
-            <input class="form-control" type="text" name="periodo" id="periodo" placeholder="2020 - 2021">
+            <input class="form-control" type="text" name="periodo" id="periodo" placeholder="2020 - 2021" required>
           </div>
         </div>
 
         <div class="form-group">
           <label for="fecha_inicio" class="col-sm-3 control-label">Fecha de inicio</label>
           <div class="col-sm-9">
-            <input class="form-control" type="date" name="fecha_inicio" id="fecha_inicio" min="{{ now() }}">
+            <input class="form-control" type="date" name="fecha_inicio" id="fecha_inicio" min="{{ now() }}" required>
           </div>
         </div>
 
+        <div class="form-group">
+          <label for="fecha_final" class="col-sm-3 control-label">Fecha de final</label>
+          <div class="col-sm-9">
+            <input class="form-control" type="date" name="fecha_final" id="fecha_final" min="{{ now() }}" required>
+          </div>
+        </div>
 
       </div>
       <!-- /.box-body -->

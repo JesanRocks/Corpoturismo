@@ -32,7 +32,7 @@ Route::get('/Constancia_de_trabajo/descargar/{cod}',	'PDFController@pdf_descarga
 Route::get('/Solicitud_de_vacaciones/{cod}',	'PDFController@pdf_vacaciones')->name('vacaciones');
 Route::get('/Solicitud_de_vacaciones/descargar/{cod}',	'PDFController@pdf_descargar_vacaciones')->name('vacaciones.descarga');
 
-// Route::get('/Solicitud_de_permiso/{cod}',	'PDFController@pdf_permiso')->name('permiso');
-// Route::get('/Solicitud_de_permiso/descargar/{cod}',	'PDFController@pdf_descargar_permiso')->name('permiso.descarga');
+Route::get('/Solicitud_de_permiso/{cod}',	'PDFController@pdf_permiso')->name('permiso');
+Route::get('/Solicitud_de_permiso/descargar/{cod}',	'PDFController@pdf_descargar_permiso')->name('permiso.descarga');
 
 #Route::get('inventarios/desargar/pdf',	'Inventario\pdfController@descarga')->name('descarga.pdf');

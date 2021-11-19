@@ -86,24 +86,28 @@
           </a>
         </li>
 
+        @if(Auth::user()->rol_id == 1)
         <li class="{{ request()->is('cargos*') ? 'active' : '' }}">
           <a href="{{ route('cargos.index') }}">
             <i class="fa fa-user"></i> <span>Cargos</span>
           </a>
         </li>
+        
 
         <li class="{{ request()->is('usuarios*') ? 'active' : '' }}">
           <a href="{{ route('usuarios.index') }}">
             <i class="fa fa-user"></i> <span>Usuarios</span>
           </a>
         </li>
-
+        @endif
+        
         <li class="{{ request()->is('solicitud*') ? 'active' : '' }}">
           <a href="{{ route('solicitud.index') }}">
             <i class="fa fa-file-text"></i> <span>Solicitudes</span>
           </a>
         </li>
 
+        @if(Auth::user()->rol_id == 1 OR Auth::user()->rol_id == 2)
         <li class="treeview {{ request()->is('tramites*') ? 'active' : '' }} {{ request()->is('revisado*') ? 'active' : '' }}">
           <a href="#">
             <i class="fa fa-list"></i> <span>Trámites</span>
@@ -124,115 +128,7 @@
             </li>
           </ul>
         </li>
-
-        <!--li class="treeview">
-          <a href="#">
-            <i class="fa fa-dashboard"></i> <span>Administador</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li class="active">
-                <a href="{{ route('usuarios.index') }}">
-                    <i class="fa fa-circle-o"></i> Usuarios
-                </a>
-            </li>
-
-            <li>
-                <a href="index2.html">
-                    <i class="fa fa-circle-o"></i> Opcion 2
-                </a>
-            </li>
-          </ul>
-        </li>
-
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-dashboard"></i> <span>Gerente de Proyectos</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li class="active">
-                <a href="index.html">
-                    <i class="fa fa-circle-o"></i> Opcion 1
-                </a>
-            </li>
-            <li>
-                <a href="index2.html">
-                    <i class="fa fa-circle-o"></i> Opcion 2
-                </a>
-            </li>
-          </ul>
-        </li>
-        
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-dashboard"></i> <span>Empleados</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li class="active">
-                <a href="index.html">
-                    <i class="fa fa-circle-o"></i> Opcion 1
-                </a>
-            </li>
-            <li>
-                <a href="index2.html">
-                    <i class="fa fa-circle-o"></i> Opcion 2
-                </a>
-            </li>
-          </ul>
-        </li-->
-
-{{--         <li>
-          <a href="pages/calendar.html">
-            <i class="fa fa-calendar"></i> <span>Calendario</span>
-            <span class="pull-right-container">
-              <small class="label pull-right bg-red">3</small>
-              <small class="label pull-right bg-blue">17</small>
-            </span>
-          </a>
-        </li>
-
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-share"></i> <span>Multilevel</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="#"><i class="fa fa-circle-o"></i> Level 1</a></li>
-            <li class="treeview">
-              <a href="#"><i class="fa fa-circle-o"></i> Level 1
-                <span class="pull-right-container">
-                  <i class="fa fa-angle-left pull-right"></i>
-                </span>
-              </a>
-              <ul class="treeview-menu">
-                <li><a href="#"><i class="fa fa-circle-o"></i> Level 2</a></li>
-                <li class="treeview">
-                  <a href="#"><i class="fa fa-circle-o"></i> Level 2
-                    <span class="pull-right-container">
-                      <i class="fa fa-angle-left pull-right"></i>
-                    </span>
-                  </a>
-                  <ul class="treeview-menu">
-                    <li><a href="#"><i class="fa fa-circle-o"></i> Level 3</a></li>
-                    <li><a href="#"><i class="fa fa-circle-o"></i> Level 3</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-            <li><a href="#"><i class="fa fa-circle-o"></i> Level 1</a></li>
-          </ul>
-        </li> --}}
-
+        @endif
       </ul>
     </section>
     <!-- /.sidebar -->

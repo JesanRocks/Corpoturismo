@@ -72,11 +72,8 @@
                           @case(2)
                               <a href="{{ route('vacaciones', $solicitud->cod) }}" title="" class="btn btn-info btn-sm"> Descargar </a>
                               @break
-                          @case(3)
-                              <a href="{{ route('permiso', $solicitud->cod) }}" title="" class="btn btn-info btn-sm"> Descargar </a>
-                              @break
                           @default
-                                  Default case...
+                              <a href="{{ route('permiso', $solicitud->cod) }}" title="" class="btn btn-info btn-sm"> Descargar </a>                              
                       @endswitch 
                     
                     @endif

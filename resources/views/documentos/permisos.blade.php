@@ -40,11 +40,10 @@
 		.page-break {
 		    page-break-after: always;
 		}
-
 	</style>
 </head>
 <body>
-	<div class="page-break">
+	<div class="">
 		<img src="img/logo2.png" class="logoGob">										
 		<img src="img/logo.png" class="logoCP">
 		<p class="membrete"><b>	
@@ -54,6 +53,7 @@
 			Telf.: 0291-6440657 / E-mail: cormotur.rrhh@gmail.com<br>
 			Maturín, Estado Monagas - Venezuela<br></b>
 		</p>
+		<br><br><br><br>
 		<div class="tituloDoc"><b>Solicitud de permisos</b></div>
 		<b>Fecha:</b> 
 		{{ $solicitud->created_at->day}} / {{$solicitud->created_at->monthName}} / 
@@ -75,7 +75,8 @@
 		</table><br>     
 			
 		<b>Tipo de permiso</b><br><br>
-		<table border="1">
+		 {{ $solicitud->documento->dsc }}<br><br>
+		<!-- <table border="1">
 			<tr>
 				<td>Obligatorios</td>
 				<td>Postestativo</td>
@@ -110,7 +111,7 @@
 				<td>Observación: {{ $solicitud->razon}} </td>
 				<td>No remunerados</td>
 			</tr>		
-		</table><br>
+		</table><br> -->
 
 		<b>Periodo de duración del permiso</b><br><br>
 		<table border="1">
@@ -120,31 +121,20 @@
 				<td colspan="3" width="230px"><center>Total </center></td>
 			</tr>
 			<tr>
-				<td><center>Día 	<br> {{ $solicitud->created_at->day }}</center></td>
-				<td><center>Mes 	<br> {{ $solicitud->created_at->month }}</center></td>
-				<td><center>Año 	<br> {{ $solicitud->created_at->year }}</center></td>
-				<td><center>Día 	<br> {{ $solicitud->updated_at->day }}</center></td>
-				<td><center>Mes 	<br> {{ $solicitud->updated_at->month }}</center></td>
-				<td><center>Año 	<br> {{ $solicitud->updated_at->year }}</center></td>
-				<td><center>Horas 	<br> {{ $solicitud->created_at->year }}</center></td>
-				<td><center>Días 	<br> {{ $solicitud->created_at->year }}</center></td>
-				<td><center>Meses 	<br> {{ $solicitud->created_at->year }}</center></td>
+				<td><center>Día 	<br>{{ date("d", strtotime($solicitud->fecha_inicio)) }}</center></td>
+				<td><center>Mes 	<br>{{ date("m", strtotime($solicitud->fecha_inicio)) }}</center></td>
+				<td><center>Año 	<br>{{ date("Y", strtotime($solicitud->fecha_inicio)) }}</center></td>
+				<td><center>Día 	<br>{{ date("d", strtotime($solicitud->fecha_final)) }}</center></td>
+				<td><center>Mes 	<br>{{ date("m", strtotime($solicitud->fecha_final)) }}</center></td>
+				<td><center>Año 	<br>{{ date("Y", strtotime($solicitud->fecha_final)) }}</center></td>
+				<td><center>Horas 	<br><br></center></td>
+				<td><center>Días 	<br><br></center></td>
+				<td><center>Meses 	<br><br></center></td>
 			</tr>
 		</table><br>
 		
-		<b>Aceptación</b><br><br>
-		<table border="1">
-			<tr>
-				<td width="230px"><center>Supervisor inmediato</center></td>
-				<td width="230px"><center>Trabajador</center></td>
-				<td width="230px"><center>Validacion RRHH</center></td>
-			</tr>
-			<tr>
-				<td>Firma: <br></td>
-				<td>Firma: <br></td>
-				<td>Firma: <br></td>
-			</tr>
-		</table>
+		<br><br><br><br><br><br><br><br><br><center><b>Aceptación</b><br>LCDO Juan J. Guerra<br>Gerente de administracion de Recursos Humanos<br> y Servicios Generales (E)
+				</center>
 
 	</div>
 </body>

@@ -66,7 +66,7 @@ class SolicitudeController extends Controller
             'estatus_id'        => '1',
             'periodo'           => $request->input('periodo'),
             'fecha_inicio'      => $request->input('fecha_inicio'),            
-            // 'fecha_aprobado'    => $request->input('fecha_aprobado'),
+            'fecha_final'       => $request->input('fecha_final'),
             'razon'   => "En espera...",
         ]); 
 

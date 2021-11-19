@@ -24,15 +24,9 @@ class RolesTableSeeder extends Seeder
         ]);
 
         App\Role::create([
-        	'dsc'		    =>  'Gerente de Proyectos',
+        	'dsc'		    =>  'Personal',
             'sueldo'        =>  '30000000.00',
             'sueldoEscrito' =>  'Treinta millones de Bolívares con cero céntimos',
-        ]);
-
-        App\Role::create([
-        	'dsc'		    =>  'Personal',
-            'sueldo'        =>  '20000000.00',
-            'sueldoEscrito' =>  'Veinte millones de Bolívares con cero céntimos',
         ]);
     }
 }
